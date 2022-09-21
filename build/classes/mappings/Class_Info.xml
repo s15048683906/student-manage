@@ -1,0 +1,26 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+		
+<mapper namespace="class_">
+	<select id="getClass_List"  resultType="com.beans.Class_Info"  parameterType="int" >
+		select * from class_Info where parentId = #{parentId}
+	</select>
+	
+	<select id="getClass_ById"  resultType="com.beans.Class_Info"  parameterType="int" >
+		select * from class_Info where id = #{id}
+	</select>
+	
+	<select id="getAllClass_" resultType="com.beans.Class_Info">
+		select * from class_Info
+	</select>
+	
+	<delete id="deleteClass_ById" parameterType="int">
+		delete from class_Info where id =#{id}
+	</delete>
+	
+	<insert id="addClass_"  parameterType="com.beans.Class_Info"  >
+		insert into class_Info (class_Name,des,parentId) values ( #{class_Name},#{des},#{parentId})
+	</insert>
+</mapper>
+				
+				

@@ -1,0 +1,24 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+		
+<mapper namespace="score">
+
+	<select id="getSubScoreList"  resultType="com.beans.ScoreInfo"  parameterType="int" >
+		select * from scoreInfo where parentId = #{parentId}
+	</select>
+	
+	<select id="getScoreById"  resultType="com.beans.ScoreInfo"  parameterType="int" >
+		select * from scoreInfo where id = #{id}
+	</select>
+	
+	<select id="getAllScore" resultType="com.beans.ScoreInfo">
+		select * from scoreInfo
+	</select>
+	
+	<insert id="add"  parameterType="com.beans.ScoreInfo"  >
+		insert into scoreInfo (id,name,score,parentId) values ( #{id},#{name},#{score},#{parentId})
+	</insert>
+	
+</mapper>
+				
+				

@@ -1,0 +1,31 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+		
+<mapper namespace="role">
+	<select id="getRoleById"  resultType="com.beans.RoleInfo"  parameterType="int" >
+		select * from roleInfo where id = #{id}
+	</select>
+	
+	<insert id="addRole"  parameterType="com.beans.RoleInfo"  >
+		insert into roleInfo (roleName,des) values ( #{roleName},#{des})
+	</insert>
+	
+	<delete id="deleteRoleById" parameterType="int">
+		delete from roleInfo where id =#{id}
+	</delete>
+	
+	<update id="updateRole" parameterType="com.beans.RoleInfo">
+		update roleInfo set roleName=#{roleName}, des=#{des} where id=#{id}
+	</update>
+	
+	<select id="getAllRoles" resultType="com.beans.RoleInfo">
+		select * from roleInfo
+	</select>
+	
+	<update id="updateAdminRole" parameterType="map">
+	    update AdminInfo set roleId=${roleId} where id=${adminId}
+	</update>
+	
+</mapper>
+				
+				
